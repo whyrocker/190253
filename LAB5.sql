@@ -1,0 +1,30 @@
+use company_2025;
+create  table CLIENT as select * from company_2025.CLIENT;
+create  table `ORDER` as select * from company_2025.`ORDER`;
+create  table EMPLOYEE as select * from company_2025.EMPLOYEE;
+
+select * from `ORDER` where ORDER_STATUS =5;
+select ORDER_ID, ORDER_STATUS from `ORDER` where CLIENT_ID in (1,3,5);
+
+select* from EMPLOYEE where FIRST_NAME = 'agnieszka' and PENSJA = 3900;
+select * from EMPLOYEE where PENSJA between 5000 and 7000;
+select* from CLIENT where SHORT_NAME like '%eco%' and IS_COMPANY=1;
+
+select * from `ORDER` where month(ORDER_DATE) in (6,7);
+select * from `ORDER` CLIENT where TAX_IDENTIFIER is not null order by short_name asc;
+SELECT * FROM EMPLOYEE ORDER BY BIRTH_DATE ASC LIMIT 5;
+
+SELECT distinct FIRST_NAME FROM EMPLOYEE;
+SELECT CONCAT(FIRST_NAME , '-', LAST_NAME) AS PRACOWNIK
+FROM EMPLOYEE WHERE LAST_NAME LIKE '%KO%';
+SELECT LAST_NAME, PENSJA FROM EMPLOYEE  WHERE YEAR(DATE_OF_EMPLOYMENT) BETWEEN 2010 AND 2014;
+
+SELECT PENSJA , PENSJA * 0.75 AS PENSJA_NETTO, PENSJA *0.25 AS PODATEK FROM EMPLOYEE;
+SELECT * FROM CLIENT WHERE TAX_IDENTIFIER IS NULL;
+SELECT SHORT_NAME FROM CLIENT  WHERE SHORT_NAME LIKE 'K%' OR SHORT_NAME LIKE 'SKI%' ORDER BY SHORT_NAME DESC;
+
+
+
+
+
+
